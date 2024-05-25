@@ -34,7 +34,7 @@ int main() {
 			"\n [3]. Beli tiket MPL Season 99"
 			"\n [4]. Cari Data Tiket"
 			"\n [ESC]. Exit"
-			"\n >>>"
+			"\n >>> "
 		);menu=getche();
 
 		switch(menu){
