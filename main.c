@@ -4,7 +4,6 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 typedef char str[128];
-
 typedef struct kursi{
 		int isi;
 		str nama;
@@ -13,13 +12,12 @@ typedef struct kursi{
 		str bayar;
 	}kursi;
 
+void c3(kursi arr[12][8]);
+void c4(kursi arr[12][8]);
+
 int main() {
-	int k, i, j, menu, p;
-	str t_nama, t_hp, t_email, cek_at, t_bayar;
-	char kode, Kode, kode_a, kode_h;
-	str kordinat, kode_s, temp;
 	kursi arr[12][8];
-	char tl = 201, bl = 200, tr = 187, br = 188, v = 186, h = 205;
+	int i, j, menu;
 	
 	for(i=0;i<12;i++){
 		for(j=0;j<8;j++){
@@ -41,6 +39,23 @@ int main() {
 
 		switch(menu){
 			case 51:
+				c3(&arr);
+				break;
+			case 52:
+				c4(&arr);
+				break;
+		}getch();
+	}while(1);
+	return 0;
+}
+
+void c3(kursi arr[12][8]){
+				int k, i, j, p;
+				str t_nama, t_hp, t_email, cek_at, t_bayar;
+				char kode, Kode, kode_a, kode_h;
+				str kordinat, kode_s, temp;
+				char tl = 201, bl = 200, tr = 187, br = 188, v = 186, h = 205;
+				
 				printf("\n\t\t\t%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c"
 				,tl,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,tr);
 				printf("\n\t\t\t%c      oooooo   oooooo     oooo ooooo ooooo      ooo       %c", v, v);
@@ -160,10 +175,12 @@ int main() {
 				strcpy(arr[kordinat[0]-'A'][kordinat[1]-'1'].email, t_email);
 				strcpy(arr[kordinat[0]-'A'][kordinat[1]-'1'].bayar, t_bayar);
 				printf("\n\t\t[+] Berhasil Membeli Nomor Kursi %s Atas Nama %s [+]", kordinat, t_nama);
-				break;
-				
-			case 52:
-				printf("\n\t--- [ Cari Data Tiket ] ---\n");
+}
+
+void c4(kursi arr[12][8]){
+	str kordinat;
+	
+	printf("\n\t--- [ Cari Data Tiket ] ---\n");
 				printf("\n\tMasukkan Nomor Kursi Yang Ingin Dicari : ");
 				fflush(stdin); gets(kordinat);
 				if(kordinat[0]-'A'<0||kordinat[0]-'A'>11||kordinat[1]-'1'<0||kordinat[1]-'1'>7){
@@ -175,11 +192,6 @@ int main() {
 					printf("\n\t\t--> Nama              : %s", arr[kordinat[0]-'A'][kordinat[1]-'1'].nama);
 					printf("\n\t\t--> Nomor Handphone   : %s", arr[kordinat[0]-'A'][kordinat[1]-'1'].hp);
 					printf("\n\t\t--> Email             : %s", arr[kordinat[0]-'A'][kordinat[1]-'1'].email);
-					printf("\n\t\t--> Metode Pembayaran : %s", arr[kordinat[0]-'A'][kordinat[1]-'1'].bayar);	
-					break;
-				}
-				break;	
-		}getch();
-	}while(1);
-	return 0;
+					printf("\n\t\t--> Metode Pembayaran : %s", arr[kordinat[0]-'A'][kordinat[1]-'1'].bayar);		
+				}	
 }
