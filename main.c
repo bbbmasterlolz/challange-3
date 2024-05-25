@@ -14,10 +14,10 @@ typedef struct kursi{
 	}kursi;
 
 int main() {
-	int k, i, j, menu;
+	int k, i, j, menu, p;
 	str t_nama, t_hp, t_email, cek_at, t_bayar;
-	char kode, Kode;
-	str kordinat;
+	char kode, Kode, kode_a, kode_h;
+	str kordinat, kode_s, temp;
 	kursi arr[12][8];
 	char tl = 201, bl = 200, tr = 187, br = 188, v = 186, h = 205;
 	
@@ -64,11 +64,42 @@ int main() {
 				printf("\n");
 				printf("\n");
 				
+				
+				//normal
 				kode = 'A';
 				for(k=0;k<12;k++){
 					Kode = kode + k;
 					printf("\n\t\t[%c1]   [%c2]   [%c3]   [%c4]                         [%c5]   [%c6]   [%c7]   [%c8]",Kode,Kode,Kode,Kode,Kode,Kode,Kode,Kode);
 				}
+				
+				
+				//inovasi
+//				kode_a = '1';
+//				kode_h = 'A';
+//				for(i=0;i<12;i++){
+//					p=0;
+//					strcpy(kode_s, "\n\t\t");
+//					p+=strlen("\n\t\t");
+//					for(j=0;j<8;j++){
+//						if(arr[i][j].isi==1){
+//							sprintf(kode_s+p, "\033[31m");
+//							p+=strlen("\033[31m");
+//						}
+//						sprintf(kode_s+p, "[%c%c]   ",kode_h+i, kode_a+j);
+//						p+=strlen("[A1]   ");
+//						if(j==3){
+//							sprintf(kode_s+p, "                      ");
+//							p+=strlen("                      ");
+//						}
+//						if(arr[i][j].isi==1){
+//							sprintf(kode_s+p, "\033[0m");
+//							p+=strlen("\033[0m");
+//						}
+//					}
+//					printf(kode_s);
+//				}
+				
+				
 				
 				printf("\n");
 				printf("\n\t\t\t     --- [ Form Pembelian Ticket MPL Arena Season 99  ] ---");
@@ -140,7 +171,7 @@ int main() {
 				}else if(arr[kordinat[0]-'A'][kordinat[1]-'1'].isi==0){
 					printf("\n\t\t[!] Data Kursi Tidak Ditemukan [!]\n");
 				}else{
-					printf("\n\t\t----- [ Kursi Nomor A1 ] -----");
+					printf("\n\t\t----- [ Kursi Nomor %s ] -----", kordinat);
 					printf("\n\t\t--> Nama              : %s", arr[kordinat[0]-'A'][kordinat[1]-'1'].nama);
 					printf("\n\t\t--> Nomor Handphone   : %s", arr[kordinat[0]-'A'][kordinat[1]-'1'].hp);
 					printf("\n\t\t--> Email             : %s", arr[kordinat[0]-'A'][kordinat[1]-'1'].email);
